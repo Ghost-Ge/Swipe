@@ -36,6 +36,28 @@ Also Swipe needs just a few styles added to your stylesheet:
   width:100%;
   position: relative;
 }
+
+分页圆点
+.slider-pager li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #DDD;
+  box-shadow: inset 0 1px 3px black,0 0 1px 1px #202020;
+  margin: 0 2px;
+  cursor: pointer;
+}
+.slider-pager li.on {
+  box-shadow: inset 0 1px 3px -1px #28b4ea, 0 1px 2px rgba(0,0,0,.5);
+  background-color: #1293dc;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1293dc), color-stop(100%, #0f6297));
+  background-image: -webkit-linear-gradient(top, #1293dc, #0f6297);
+  background-image: -moz-linear-gradient(top, #1293dc, #0f6297);
+  background-image: -ms-linear-gradient(top, #1293dc, #0f6297);
+  background-image: -o-linear-gradient(top, #1293dc, #0f6297);
+  background-image: linear-gradient(top, #1293dc, #0f6297)
+}
 ```
 
 ## Config Options
@@ -63,11 +85,11 @@ Swipe can take an optional second parameter– an object of key/value settings:
 ``` js
 
 window.mySwipe = new Swipe(document.getElementById('slider'), {
-  startSlide: 2,
+  startSlide: 2, // 开始的索引
   speed: 400,
-  auto: 3000,
-  continuous: true,
-  disableScroll: false,
+  auto: 3000, //自动播放时间
+  continuous: true, //是否可以循环滑动
+  disableScroll: false, //停止触摸滑动
   stopPropagation: false,
   callback: function(index, elem) {},
   transitionEnd: function(index, elem) {}
@@ -93,11 +115,14 @@ Swipe exposes a few functions that can be useful for script control of your slid
 Swipe is now compatible with all browsers, including IE7+. Swipe works best on devices that support CSS transforms and touch, but can be used without these as well. A few helper methods determine touch and CSS transition support and choose the proper animation methods accordingly.
 
 ## Who's using Swipe
-- CNN
-- Craigslist
-- Airbnb
-- NHL
-- many more…
+<img src='http://swipejs.com/assets/swipe-cnn.png' width='170'>
+<img src='http://swipejs.com/assets/swipe-airbnb.png' width='170'>
+<img src='http://swipejs.com/assets/swipe-nhl.png' width='170'>
+<img src='http://swipejs.com/assets/swipe-htc.png' width='170'>
+<img src='http://swipejs.com/assets/swipe-thinkgeek.png' width='170'>
+<img src='http://swipejs.com/assets/swipe-snapguide.png' width='170'>
+
+Shoot me a [note](mailto:brad@birdsall.co) if you want your logo here
 
 ## License
 Copyright (c) 2013 Brad Birdsall Licensed under the [The MIT License (MIT)](http://opensource.org/licenses/MIT).

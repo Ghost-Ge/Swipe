@@ -40,15 +40,15 @@ function Swipe(container, options) {
     slides = element.children;
     length = slides.length;
 
-    // set continuous to false if only one slide
-    if (slides.length < 2) options.continuous = false;
+    // set continuous to false if only one slide // 修改小于3 不启用连续滑动功能
+    if (slides.length < 3) options.continuous = false;
 
-    //special case if two slides
-    if (browser.transitions && options.continuous && slides.length < 3) {
-      element.appendChild(slides[0].cloneNode(true));
-      element.appendChild(element.children[1].cloneNode(true));
-      slides = element.children;
-    }
+    //special case if two slides  当启用options.continuous为true时小3个节点下面代码会重复克隆两个节点
+    // if (browser.transitions && options.continuous && slides.length < 3) {
+    //   element.appendChild(slides[0].cloneNode(true));
+    //   element.appendChild(element.children[1].cloneNode(true));
+    //   slides = element.children;
+    // }
 
     // create an array to store current positions of each slide
     slidePos = new Array(slides.length);
