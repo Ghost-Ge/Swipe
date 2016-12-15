@@ -108,7 +108,7 @@ window.mySwipe = new Swipe(document.getElementById('slider'), {
   speed: 400,
   auto: 3000, //自动播放时间
   continuous: true, //是否可以循环滑动
-  disableScroll: false, //停止触摸滑动
+  disableScroll: false, //停止触摸滚动页面
   stopPropagation: false,
   callback: function(index, elem) {
     $(elem).parents('.swipe').find(".slider-pager").find('i').eq(index).addClass('on').siblings().removeClass('on');
