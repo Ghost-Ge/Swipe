@@ -82,6 +82,25 @@ Swipe can take an optional second parameter– an object of key/value settings:
 
 ### Example
 
+``` html
+
+<div id="slider" class="swipe">
+  <div class="swipe-wrap">
+    <div style="background:green"></div>
+    <div style="background:blue"></div>
+    <div style="background:yellow"></div>
+  </div>
+  <nav>
+    <ul class="slider-pager">
+      <li class="on"></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </nav>
+</div>
+
+```
+
 ``` js
 
 window.mySwipe = new Swipe(document.getElementById('slider'), {
@@ -91,7 +110,9 @@ window.mySwipe = new Swipe(document.getElementById('slider'), {
   continuous: true, //是否可以循环滑动
   disableScroll: false, //停止触摸滑动
   stopPropagation: false,
-  callback: function(index, elem) {},
+  callback: function(index, elem) {
+    $(elem).parents('.swipe').find(".slider-pager").find('i').eq(index).addClass('on').siblings().removeClass('on');
+  },
   transitionEnd: function(index, elem) {}
 });
 
